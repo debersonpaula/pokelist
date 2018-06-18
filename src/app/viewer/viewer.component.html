@@ -1,0 +1,39 @@
+<div *ngIf="isLoading" class="loader">
+  <mat-spinner></mat-spinner>
+</div>
+
+<mat-card *ngIf="!isLoading">
+  <mat-card-content>
+
+    <img [src]="data.sprites.front_default">
+
+    <mat-card-title>{{capitalizeFirstLetter(data.name)}}</mat-card-title>
+    <mat-card-subtitle>Altura: {{data.height}} / Peso: {{data.weight}}</mat-card-subtitle>
+    <hr>
+
+    <mat-card-title>Tipo</mat-card-title>
+    <ul>
+      <li *ngFor="let item of data.types">
+        {{item.type.name}}
+      </li>
+    </ul>
+    <hr>
+
+    <mat-card-title>Abilidades</mat-card-title>
+    <ul>
+      <li *ngFor="let item of data.abilities">
+        {{item.ability.name}}
+      </li>
+    </ul>
+    <hr>
+
+    <mat-card-title>Atributos</mat-card-title>
+    <ul>
+      <li *ngFor="let item of data.stats">
+        {{item.stat.name}}: {{item.base_stat}}
+      </li>
+    </ul>
+  </mat-card-content>
+
+
+</mat-card>
